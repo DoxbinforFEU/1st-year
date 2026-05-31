@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mikhail &amp; Chachie — 10 Months</title>
+
+  <!-- Google Fonts: Cormorant Garamond + Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@200;300;400&display=swap" rel="stylesheet" />
+
+  <!-- GSAP + Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  CUSTOM CURSOR                      ║
+       ╚══════════════════════════════════════╝ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="mnav-site-nav" aria-label="Monthsary sites">
+    <ul class="mnav-site-nav__list">
+      <li><a href="./index.html" class="mnav-site-nav__link mnav-site-nav__link--active">9th Monthsary</a></li>
+      <li><a href="../first 10th gift/index.html" class="mnav-site-nav__link">10th Monthsary</a></li>
+      <li><a href="../second 10th gift/index.html" class="mnav-site-nav__link">10th Monthsary II</a></li>
+    </ul>
+  </nav>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  LOADING SCREEN                     ║
+       ╚══════════════════════════════════════╝ -->
+  <div class="loader" id="loader">
+    <canvas class="loader__grain" id="loaderGrain"></canvas>
+    <div class="loader__content">
+      <div class="loader__names">Mikhail &amp; Chachie</div>
+      <div class="loader__months">9 Months Together</div>
+      <div class="loader__bar-wrap">
+        <div class="loader__bar-track">
+          <div class="loader__bar-fill" id="loaderBarFill"></div>
+        </div>
+        <span class="loader__pct" id="loaderPct">0</span>
+      </div>
+      <div class="loader__tagline">loading memories&hellip;</div>
+    </div>
+  </div>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  GLOBAL GRAIN OVERLAY               ║
+       ╚══════════════════════════════════════╝ -->
+  <canvas class="grain-overlay" id="grainOverlay"></canvas>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  HERO                               ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="hero" id="hero">
+    <canvas class="hero__stars" id="starsCanvas"></canvas>
+    <div class="hero__smoke s1"></div>
+    <div class="hero__smoke s2"></div>
+    <div class="hero__smoke s3"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-reveal>— a love story —</p>
+      <h1 class="hero__title">
+        <span class="hero__name" data-reveal>Mikhail</span>
+        <span class="hero__amp" data-reveal>&amp;</span>
+        <span class="hero__name hero__name--italic" data-reveal>Chachie</span>
+      </h1>
+      <p class="hero__sub" data-reveal>9 months of love, memories, and forever.</p>
+      <a class="hero__btn" id="beginBtn" href="#story" data-reveal>
+        <span class="hero__btn-label">Let's continue our story!</span>
+        <span class="hero__btn-glow"></span>
+      </a>
+    </div>
+
+    <div class="hero__scroll-hint" id="scrollHint">
+      <div class="hero__scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  LOVE STORY — THE TIME WE MET        ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="chapter" id="story" data-chapter="01">
+    <div class="chapter__ambient"></div>
+    <div class="container">
+      <div class="chapter__num" data-split>01</div>
+      <h2 class="chapter__title" data-split>The Time We<br /><em>Met</em></h2>
+      <div class="chapter__grid">
+        <div class="chapter__image-box" data-parallax>
+          <img src="how_we_met.jpg" alt="The time we met" />
+          <div class="chapter__image-glow"></div>
+        </div>
+        <div class="chapter__copy">
+          <p class="chapter__p" data-split>
+            The meeting we had was a second attempt, because the first had failed. But the meet up at Palette Cafe was very much worth the time.
+          </p>
+          <p class="chapter__p" data-split>
+            We might not had expected it to happen, but it was definitely a day to never forget.
+          </p>
+          <blockquote class="chapter__quote" data-split>
+            "I've met you at 2023<br />I found you again, you will always be the love of my life."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  LOVE STORY — LATE NIGHTS           ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="chapter chapter--flip" id="nights" data-chapter="02">
+    <div class="chapter__ambient chapter__ambient--right"></div>
+    <div class="container">
+      <div class="chapter__num" data-split>02</div>
+      <h2 class="chapter__title" data-split>Late Night<br /><em>Hangouts</em></h2>
+      <div class="chapter__grid">
+        <div class="chapter__copy">
+          <p class="chapter__p" data-split>
+            The times where we spent hours and hours together at my house and we won't out to Gateway Cubao.
+          </p>
+          <p class="chapter__p" data-split>
+            We cooked sisig, ate nuggets, movie nights, and even sexy time.
+          </p>
+          <blockquote class="chapter__quote" data-split>
+            "The house really felt like home<br />it can never feel like home without you."
+          </blockquote>
+        </div>
+        <div class="chapter__image-box" data-parallax>
+          <img src="late_nights.jpg" alt="Late night conversations" />
+          <div class="chapter__image-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  HORIZONTAL MEMORIES SCROLL         ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="memories-wrap" id="memories">
+    <div class="memories__sticky">
+      <div class="memories__label">
+        <div class="chapter__num" data-split>03</div>
+        <h2 class="memories__title" data-split>My favourite memories of <br /><em>Us</em></h2>
+      </div>
+      <div class="memories__track" id="memoriesTrack">
+        <div class="mem-card">
+          <img src="first image.jpg" alt="Memory 01" />
+          <p class="mem-card__cap">The first photograph</p>
+        </div>
+        <div class="mem-card">
+          <img src="first photobooth.jpg" alt="Memory 02" />
+          <p class="mem-card__cap">A Sunday we didn't plan</p>
+        </div>
+        <div class="mem-card">
+          <img src="3rd image.jpg" alt="Memory 03" />
+          <p class="mem-card__cap">Rain on the window</p>
+        </div>
+        <div class="mem-card">
+          <img src="4th image.jpg" alt="Memory 04" />
+          <p class="mem-card__cap">First gift I had</p>
+        </div>
+        <div class="mem-card">
+          <img src="2nd image.jpg" alt="Memory 05" />
+          <p class="mem-card__cap">The first gym date</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  9 MONTHS TOGETHER                 ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="milestone" id="milestone" data-chapter="04">
+    <div class="milestone__bg"></div>
+    <div class="container container--center">
+      <div class="chapter__num" data-split>04</div>
+      <h2 class="milestone__count" data-split>9</h2>
+      <p class="milestone__label" data-split>months together</p>
+      <div class="milestone__divider"></div>
+      <p class="milestone__body" data-split>
+        A month of courting you, 9 months of us commiting, and more months & years to look forward to in our life.
+      </p>
+      <p class="milestone__body" data-split>
+        Each second that passes by, will always be a reminder of how much I'll always miss and love you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  BIG QUOTE SECTION                  ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="quotes-section" id="quotes">
+    <div class="quote-marquee-wrap">
+      <div class="quote-block" data-quote>
+        <p class="quote-block__text">"You are my home"</p>
+      </div>
+      <div class="quote-block" data-quote>
+        <p class="quote-block__text">"Good things take time."</p>
+      </div>
+      <div class="quote-block" data-quote>
+        <p class="quote-block__text">"9 months down,<br /><em>an anniversary to wait for, and more to come!</em>"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  FOREVER WITH YOU                   ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="forever" id="forever" data-chapter="05">
+    <div class="forever__glow"></div>
+    <div class="container container--center">
+      <div class="chapter__num" data-split>05</div>
+      <h2 class="forever__title" data-split>Forever was<br /><em>Always will be</em></h2>
+      <p class="forever__body" data-split>
+        If I were to explain what we have, it can never be explainable with just words. The story that we have, is worth more than what sentences can articulate.
+      </p>
+      <div class="forever__symbol" data-split>∞</div>
+      <p class="forever__names" data-split>Mikhail ♡ Chachie</p>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  OUR PLACES                         ║
+       ╚══════════════════════════════════════╝ -->
+  <section class="places" id="places">
+    <div class="container">
+      <div class="places__header">
+        <p class="places__eyebrow" data-split>— This distance can never separate the love we have for each other, —</p>
+        <h2 class="places__title" data-split>Our Places</h2>
+        <p class="places__sub" data-split>Two maps. One path.</p>
+      </div>
+
+      <div class="places__grid">
+        <!-- Mikhail's Location -->
+        <a class="place-card" href="https://maps.app.goo.gl/ZPWc31dFWroHPXeR7" target="_blank" rel="noopener">
+          <div class="place-card__glow"></div>
+          <div class="place-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="place-card__name">Mikhail</h3>
+          <p class="place-card__detail">His house</p>
+          <span class="place-card__cta">Open on Maps →</span>
+        </a>
+
+        <!-- Connector -->
+        <div class="places__connector">
+          <div class="places__dot places__dot--a"></div>
+          <div class="places__line-wrap">
+            <svg class="places__svg" viewBox="0 0 40 160" fill="none" preserveAspectRatio="none">
+              <path id="routeStatic"   d="M20 5 C 5 50, 35 110, 20 155" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 4"/>
+              <path id="routeAnimated" d="M20 5 C 5 50, 35 110, 20 155" stroke="rgba(200,180,150,0.6)" stroke-width="1.5" stroke-dasharray="300" stroke-dashoffset="300"/>
+            </svg>
+          </div>
+          <div class="places__dot places__dot--b"></div>
+          <p class="places__dist">We are each other's homes.</p>
+        </div>
+
+        <!-- Chachie's Location -->
+        <a class="place-card" href="https://maps.app.goo.gl/X6nbH2u8gNVgUK5PA" target="_blank" rel="noopener">
+          <div class="place-card__glow"></div>
+          <div class="place-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="place-card__name">Chachie</h3>
+          <p class="place-card__detail">Her house</p>
+          <span class="place-card__cta">Open on Maps →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  FOOTER                             ║
+       ╚══════════════════════════════════════╝ -->
+  <footer class="footer" id="footer">
+    <div class="footer__line"></div>
+    <div class="container container--center">
+      <p class="footer__quote" data-split>
+        "You were the only person that made me feel safe while being vulnerable."
+      </p>
+      <p class="footer__names" data-split>Mikhail ♡ Chachie</p>
+      <p class="footer__note">9 months &amp; counting</p>
+    </div>
+  </footer>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  MUSIC PLAYER DOCK                  ║
+       ╚══════════════════════════════════════╝ -->
+  <div class="player" id="player">
+    <!-- ► Replace src with your local MP3: audio/song.mp3 -->
+    <audio id="audio" preload="auto">
+      <source src="audio.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="player__glass">
+      <!-- Album Art -->
+      <div class="player__art" id="playerArt">
+        <div class="player__art-spin"></div>
+        <!-- Replace inner with: <img src="images/album.jpg" alt="Album Art" /> -->
+        <div class="player__art-ph">♪</div>
+        <div class="player__art-glow"></div>
+      </div>
+
+      <!-- Track Info -->
+      <div class="player__meta">
+        <p class="player__track">K</p>
+        <p class="player__artist">Cigarettes After Sex</p>
+      </div>
+
+      <!-- Play / Pause -->
+      <button class="player__playbtn" id="playBtn" aria-label="Play/Pause">
+        <!-- Play icon -->
+        <svg id="iconPlay" class="player__icon" viewBox="0 0 24 24">
+          <polygon points="6,3 20,12 6,21" fill="currentColor"/>
+        </svg>
+        <!-- Pause icon (hidden) -->
+        <svg id="iconPause" class="player__icon" viewBox="0 0 24 24" style="display:none">
+          <rect x="5"  y="3" width="4" height="18" fill="currentColor"/>
+          <rect x="15" y="3" width="4" height="18" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <!-- Progress -->
+      <div class="player__prog-wrap">
+        <div class="player__prog" id="progressBar">
+          <div class="player__prog-fill" id="progressFill"></div>
+          <div class="player__prog-thumb"></div>
+        </div>
+        <div class="player__times">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
+        </div>
+      </div>
+
+      <!-- Volume -->
+      <div class="player__vol">
+        <svg class="player__vol-ico" viewBox="0 0 24 24">
+          <path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor"/>
+          <path d="M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M15.54 8.46a5 5 0 010 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <input type="range" class="player__vol-range" id="volRange" min="0" max="1" step="0.01" value="0.7" />
+      </div>
+
+      <!-- Visualizer -->
+      <div class="player__viz" id="visualizer">
+        <div class="player__vbar" style="--i:1"></div>
+        <div class="player__vbar" style="--i:2"></div>
+        <div class="player__vbar" style="--i:3"></div>
+        <div class="player__vbar" style="--i:4"></div>
+        <div class="player__vbar" style="--i:5"></div>
+        <div class="player__vbar" style="--i:6"></div>
+        <div class="player__vbar" style="--i:7"></div>
+        <div class="player__vbar" style="--i:8"></div>
+        <div class="player__vbar" style="--i:9"></div>
+        <div class="player__vbar" style="--i:10"></div>
+        <div class="player__vbar" style="--i:11"></div>
+        <div class="player__vbar" style="--i:12"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
