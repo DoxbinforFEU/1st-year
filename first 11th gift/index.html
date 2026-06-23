@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A luxury digital love letter for Cali">
+  <title>For Cali — My One & Only</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader" aria-hidden="false">
+    <div class="loader__gradient"></div>
+    <div class="loader__particles" id="loaderParticles"></div>
+    <div class="loader__glow loader__glow--1"></div>
+    <div class="loader__glow loader__glow--2"></div>
+    <div class="loader__content">
+      <p class="loader__text" id="loaderText" aria-live="polite"></p>
+      <div class="loader__shimmer"></div>
+    </div>
+    <div class="loader__progress">
+      <div class="loader__progress-bar" id="loaderProgress"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="mnav-site-nav" aria-label="Monthsary sites">
+    <ul class="mnav-site-nav__list">
+      <li><a href="../9th monthsary/index.html" class="mnav-site-nav__link">9th Monthsary</a></li>
+      <li><a href="../first 10th gift/index.html" class="mnav-site-nav__link">10th Monthsary</a></li>
+      <li><a href="../second 10th gift/index.html" class="mnav-site-nav__link">10th Monthsary II</a></li>
+      <li><a href="./index.html" class="mnav-site-nav__link mnav-site-nav__link--active">11th Monthsary</a></li>
+    </ul>
+  </nav>
+
+  <!-- Music Player -->
+  <aside class="music-player" id="musicPlayer" aria-label="Music player">
+    <div class="music-player__disc">
+      <div class="music-player__vinyl" id="vinylDisc">
+        <div class="music-player__vinyl-center"></div>
+      </div>
+    </div>
+    <div class="music-player__info">
+      <span class="music-player__title">Our Song</span>
+      <span class="music-player__artist">For Cali</span>
+    </div>
+    <div class="music-player__controls">
+      <button class="music-player__btn" id="playBtn" aria-label="Play">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button class="music-player__btn music-player__btn--hidden" id="pauseBtn" aria-label="Pause">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <button class="music-player__btn" id="muteBtn" aria-label="Mute">
+        <svg class="icon-volume" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        <svg class="icon-muted icon-hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+      </button>
+    </div>
+    <div class="music-player__timeline">
+      <span class="music-player__time" id="currentTime">0:00</span>
+      <div class="music-player__progress-wrap" id="progressWrap">
+        <div class="music-player__progress" id="progressBar"></div>
+      </div>
+      <span class="music-player__time" id="duration">0:00</span>
+    </div>
+    <input type="range" class="music-player__volume" id="volumeSlider" min="0" max="1" step="0.01" value="0.7" aria-label="Volume">
+    <audio id="audio" src="assets/audio/music.mp3" loop preload="auto"></audio>
+  </aside>
+
+  <main id="main" class="main hidden">
+    <!-- SECTION 1 — HERO -->
+    <section class="section section--hero" id="hero">
+      <div class="hero__particles" id="heroParticles"></div>
+      <div class="hero__layer hero__layer--back">
+        <div class="hero__image-wrap hero__parallax" data-speed="0.3">
+          <img src="assets/images/photo-14.jpg" alt="Cali and me — a cherished moment" loading="eager" class="hero__image">
+        </div>
+      </div>
+      <div class="hero__layer hero__layer--front">
+        <div class="hero__image-wrap hero__parallax" data-speed="0.6">
+          <img src="assets/images/photo-15.jpg" alt="Cali — my favorite smile" loading="eager" class="hero__image hero__image--accent">
+        </div>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <span class="hero__eyebrow" data-animate="fade-up">A Love Letter</span>
+        <h1 class="hero__title">
+          <span class="hero__title-line" data-split="chars">For</span>
+          <span class="hero__title-line hero__title-line--gold" data-split="chars">Cali</span>
+        </h1>
+        <p class="hero__subtitle" data-animate="fade-up">Every moment with you feels like a scene from the most beautiful film ever written.</p>
+        <div class="hero__gold-line"></div>
+      </div>
+      <div class="hero__scroll" id="scrollIndicator">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — WHY YOU ARE SPECIAL -->
+    <section class="section section--special" id="special">
+      <div class="special__grid">
+        <div class="special__visual">
+          <div class="special__image-stack">
+            <div class="special__image-frame special__image-frame--1">
+              <img src="assets/images/photo-03.jpg" alt="What makes you special" loading="lazy" class="special__img">
+            </div>
+            <div class="special__image-frame special__image-frame--2">
+              <img src="assets/images/photo-04.jpg" alt="The way you light up my world" loading="lazy" class="special__img">
+            </div>
+          </div>
+        </div>
+        <div class="special__content">
+          <span class="section-label">Chapter Two</span>
+          <h2 class="section-title" data-split="words">You will never feel invalidated.</h2>
+          <div class="special__cards">
+            <article class="luxury-card" data-reveal>
+              <span class="luxury-card__number">01</span>
+              <h3>Your Universe</h3>
+              <p>You're the person I've always longed for and I just want you to realize that time spent with you will always be a universal feeling.</p>
+            </article>
+            <article class="luxury-card" data-reveal>
+              <span class="luxury-card__number">02</span>
+              <h3>Your Presence</h3>
+              <p>You walked into my life when I least expected it, and I'm now longing for you dearly in every millisecond.</p>
+            </article>
+            <article class="luxury-card" data-reveal>
+              <span class="luxury-card__number">03</span>
+              <h3>Your Voice</h3>
+              <p>In this world, your voice is my peace and comfort in one pack. You're the person I want to hear everytime I wake up.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — MEMORIES -->
+    <section class="section section--memories" id="memories">
+      <div class="memories__header">
+        <span class="section-label">Chapter Three</span>
+        <h2 class="section-title" data-split="words">Our Fav Foodies</h2>
+        <p class="memories__intro">JCO Donuts is one of you favourite deserts.</p>
+      </div>
+      <div class="memories__pin-wrap">
+        <div class="memories__track" id="memoriesTrack">
+          <div class="memory-card memory-card--1" data-tilt>
+            <div class="memory-card__inner">
+              <img src="assets/images/photo-05.jpg" alt="Memory one — us together" loading="lazy">
+              <div class="memory-card__caption">
+                <span>Jco Donuts!</span>
+                <p>Lets get more? :3</p>
+              </div>
+            </div>
+          </div>
+          <div class="memory-card memory-card--2" data-tilt>
+            <div class="memory-card__inner">
+              <img src="assets/images/photo-12.jpg" alt="Memory two — a perfect day" loading="lazy">
+              <div class="memory-card__caption">
+                <span>Marugame Date!</span>
+                <p>I'll happily feed you with any food you want! :3</p>
+              </div>
+            </div>
+          </div>
+          <div class="memory-card memory-card--3" data-tilt>
+            <div class="memory-card__inner">
+              <img src="assets/images/photo-10.jpg" alt="Memory three — forever moment" loading="lazy">
+              <div class="memory-card__caption">
+                <span>Jco Donuts!</span>
+                <p>Lets have a JCO date? :3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — PHOTO COLLECTION -->
+    <section class="section section--gallery" id="gallery">
+      <div class="gallery__header">
+        <span class="section-label">Chapter Four</span>
+        <h2 class="section-title" data-split="words">Photo Collection</h2>
+      </div>
+      <div class="gallery__masonry">
+        <div class="gallery__item gallery__item--tall" data-gallery>
+          <div class="gallery__frame">
+            <img src="assets/images/photo-07.jpg" alt="Editorial portrait of Cali" loading="lazy">
+            <div class="gallery__overlay"><span>Sisig time!</span></div>
+          </div>
+        </div>
+        <div class="gallery__item gallery__item--wide" data-gallery>
+          <div class="gallery__frame">
+            <img src="assets/images/photo-11.jpg" alt="A candid moment together" loading="lazy">
+            <div class="gallery__overlay"><span>Cooking food for you always!</span></div>
+          </div>
+        </div>
+        <div class="gallery__item gallery__item--medium" data-gallery>
+          <div class="gallery__frame">
+            <img src="assets/images/photo-02.jpg" alt="Another beautiful memory" loading="lazy">
+            <div class="gallery__overlay"><span>Chimi chimi Changas!</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — OUR STORY -->
+    <section class="section section--story" id="story">
+      <div class="story__header">
+        <span class="section-label">Chapter Five</span>
+        <h2 class="section-title" data-split="words">Our Story</h2>
+      </div>
+      <div class="story__layout">
+        <div class="story__timeline" id="storyTimeline">
+          <div class="story__line"></div>
+          <div class="story__milestones">
+            <article class="story__milestone" data-milestone>
+              <div class="story__dot"></div>
+              <div class="story__milestone-content">
+                <span class="story__date">Mind</span>
+                <h3>Interlinked</h3>
+                <p>Our minds are our connection, it speaks so loudly that I can percept what you're feeling. it's one of the most valuable gift we both have.</p>
+              </div>
+            </article>
+            <article class="story__milestone" data-milestone>
+              <div class="story__dot"></div>
+              <div class="story__milestone-content">
+                <span class="story__date">Soul</span>
+                <h3>It touched</h3>
+                <p>It wasn't just because of time or destiny, it mas our souls finding each other until we had met. We now have the opportunity to make longer stories and better journeys. Hold on to me baby.</p>
+              </div>
+            </article>
+            <article class="story__milestone" data-milestone>
+              <div class="story__dot"></div>
+              <div class="story__milestone-content">
+                <span class="story__date">Heart</span>
+                <h3>You are very lovely my dear.</h3>
+                <p>Your heart beats for mine as how mine beats for yours, nothing can beat that. We love each other very dearly, our actions and emotions speaks to me like birds chirping in a sunny Sunday morning.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="story__images">
+          <div class="story__image-wrap story__parallax" data-speed="0.4">
+            <img src="assets/images/photo-17.jpg" alt="Our story — chapter one" loading="lazy">
+          </div>
+          <div class="story__image-wrap story__parallax" data-speed="0.7">
+            <img src="assets/images/photo-06.jpg" alt="Our story — chapter two" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 — FUTURE TOGETHER -->
+    <section class="section section--future" id="future">
+      <div class="future__ambient"></div>
+      <div class="future__header">
+        <span class="section-label">Chapter Six</span>
+        <h2 class="section-title" data-split="words">Future Together</h2>
+        <p class="future__intro">Dreams written in gold, waiting to unfold.</p>
+      </div>
+      <div class="future__cards">
+        <article class="dream-card" data-dream>
+          <div class="dream-card__glow"></div>
+          <div class="dream-card__image">
+            <img src="assets/images/photo-09.jpg" alt="Dreams of adventures together" loading="lazy">
+          </div>
+          <div class="dream-card__content">
+            <h3>Yogurt Craze</h3>
+            <p>When our tongue craves for yogurt, I shall always commit and buy you whatever flavor or topping it might be :3</p>
+          </div>
+        </article>
+        <article class="dream-card" data-dream>
+          <div class="dream-card__glow"></div>
+          <div class="dream-card__image">
+            <img src="assets/images/photo-01.jpg" alt="Dreams of quiet mornings" loading="lazy">
+          </div>
+          <div class="dream-card__content">
+            <h3>Salted Egg from Frankies</h3>
+            <p>One of your favourites that also became my favourite, oh how lovely it is to let you taste my comfort foods and you make it your favourite :3.</p>
+          </div>
+        </article>
+        <article class="dream-card" data-dream>
+          <div class="dream-card__glow"></div>
+          <div class="dream-card__image">
+            <img src="assets/images/photo-16.jpg" alt="Dreams of forever" loading="lazy">
+          </div>
+          <div class="dream-card__content">
+            <h3>Blk & IlaoIlao</h3>
+            <p>When our eye meets our favourites, I swear to buy and deliver whatever satisfies you :3</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — SPECIAL SURPRISE -->
+    <section class="section section--surprise" id="surprise">
+      <div class="surprise__particles" id="surpriseParticles"></div>
+      <div class="surprise__header">
+        <span class="section-label">Chapter Seven</span>
+        <h2 class="section-title" data-split="words">A Special Surprise</h2>
+        <p class="surprise__intro">For you, my baby Chachie, both of your upcoming gifts.</p>
+      </div>
+      <div class="surprise__cards" id="surpriseCards">
+        <button class="surprise-card surprise-card--gift" id="giftCard" aria-label="Open gift">
+          <div class="surprise-card__3d">
+            <div class="surprise-card__box">
+              <div class="surprise-card__lid">
+                <div class="surprise-card__ribbon"></div>
+              </div>
+              <div class="surprise-card__base"></div>
+            </div>
+          </div>
+          <span class="surprise-card__label">Tap Me ❤️</span>
+        </button>
+        <button class="surprise-card surprise-card--gift" id="giftCard2" aria-label="Open second gift">
+          <div class="surprise-card__3d">
+            <div class="surprise-card__box surprise-card__box--alt">
+              <div class="surprise-card__lid">
+                <div class="surprise-card__ribbon"></div>
+              </div>
+              <div class="surprise-card__base"></div>
+            </div>
+          </div>
+          <span class="surprise-card__label">Open Me ❤️</span>
+        </button>
+      </div>
+      <div class="surprise__reveal surprise__reveal--gift hidden" id="giftReveal">
+        <div class="surprise__reveal-inner">
+          <img src="assets/images/photo-18.jpg" alt="New Addition to the family..." loading="lazy">
+          <p class="surprise__message">Pillows is one of mommy's favourite!</p>
+        </div>
+      </div>
+      <div class="surprise__reveal surprise__reveal--gift hidden" id="giftReveal2">
+        <div class="surprise__reveal-inner">
+          <img src="assets/images/photo-08.jpg" alt="Surprise Foodie for Mommy Chachie!" loading="lazy">
+          <p class="surprise__message">His name is coocoo :3</p>
+        </div>
+      </div>
+      <div class="surprise__fx" id="surpriseFx"></div>
+    </section>
+
+    <footer class="footer">
+      <p class="footer__text">You are so lovely my dear<span>Baby Chachie</span></p>
+      <div class="footer__gold"></div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/loading.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/music-player.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/surprise.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
